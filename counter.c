@@ -51,6 +51,9 @@ int main()
                                count[i],
                                (((float) count[i]) / strlen(buffer)) * 100);
   }
+    printf("%-10s%-15d%-15.2f\n","Other",
+                              other,
+                              (((float) count[i]) / strlen(buffer)) * 100);
 
   // Find the max and min occuring character in the string, in particular the
   // position in the count array of each character
@@ -66,7 +69,7 @@ int main()
   printf("Least frequently occurring character: %c.\n", 
          min_pos + 65);
 
-  printf("\nOther characters: %d\n", other);
+
   return 0;
 }
 
@@ -76,7 +79,7 @@ int max(int count[])
 {
   int max = count[0];
   int max_pos = 0;
-  for (int i = 0; i < 26; i++) {
+  for (int i = 0; i < COUNT_SIZE; i++) {
     if (count[i] > max)
     {
       max_pos = i;
@@ -92,7 +95,7 @@ int min(int count[])
 {
   int min = count[0];
   int min_pos = 0;
-  for (int i = 0; i < 26; i++) {
+  for (int i = 0; i < COUNT_SIZE; i++) {
     if (count[i] < min)
     {
       min_pos = i;
